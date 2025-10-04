@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:karma_projeler/login_panel/login_panel.dart';
+import 'package:karma_projeler/login_panel/login_panel_package.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(),
-      home: const LoginPanel(),
+      theme: ThemeData(),
+      home: const LoginPanelPackage(),
     );
   }
 }
