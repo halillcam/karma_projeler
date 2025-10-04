@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:karma_projeler/login_panel/login_panel_package.dart';
+import 'package:karma_projeler/getx_tekrar/increment/increment.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: const LoginPanelPackage(),
+      home: const Increment(),
     );
   }
 }
