@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:karma_projeler/Sepet/controller/sepet_controller.dart';
+import 'package:karma_projeler/Sepet/views/sepet_detail.dart';
+import 'package:karma_projeler/Sepet/views/sepetim.dart';
 
 class SepetView extends StatefulWidget {
   const SepetView({super.key});
@@ -28,27 +30,34 @@ class _SepetViewState extends State<SepetView> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => Sepetim()));
+            },
             icon: Icon(Icons.add_shopping_cart_rounded),
           ),
           Obx(() => Text("(${sepetim.urunSayisi})")),
           SizedBox(width: 5),
         ],
       ),
-      body: Obx(
-        () => ListView.builder(
-          itemCount: sepetim.products.length,
-          itemBuilder: (context, index) {
-            return Card(
-              child: ListTile(
-                onTap: () => sepetim.addtoCard(),
-                leading: Image.asset(sepetim.products[index].urunResmi),
-                title: Text(sepetim.products[index].urunadi.toString()),
-                trailing: Text(sepetim.products[index].fiyat.toString()),
+      body: ListView.builder(
+        itemCount: sepetim.products.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) =>
+                      SepetDetail(urun: sepetim.products[index]),
+                ),
               ),
-            );
-          },
-        ),
+              leading: Image.asset(sepetim.products[index].urunResmi),
+              title: Text(sepetim.products[index].urunadi.toString()),
+              trailing: Text(sepetim.products[index].fiyat.toString()),
+            ),
+          );
+        },
       ),
     );
   }
