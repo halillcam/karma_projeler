@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:karma_projeler/login_panel/login_panel_package.dart';
+import 'package:karma_projeler/Sepet/views/sepet_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
-      home: const LoginPanelPackage(),
+      theme: ThemeData.dark().copyWith(),
+      home: const SepetView(),
     );
   }
 }
