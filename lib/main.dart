@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:karma_projeler/Sepet/views/sepet_view.dart';
 import 'package:karma_projeler/getx_tekrar/increment/increment.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: const Increment(),
+      home: const SepetView(),
     );
   }
 }
