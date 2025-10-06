@@ -31,9 +31,7 @@ class _SepetViewState extends State<SepetView> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(
-                context,
-              ).push(MaterialPageRoute(builder: (context) => Sepetim()));
+              Get.to(Sepetim());
             },
             icon: Icon(Icons.add_shopping_cart_rounded),
           ),

@@ -17,4 +17,21 @@ class SepetController extends GetxController {
     sepetListesi.add(urun);
     urunSayisi.value = sepetListesi.length;
   }
+
+  void removeToCart(SepetModel urun) {
+    if (sepetListesi.isNotEmpty) {
+      sepetListesi.remove(urun);
+      urunSayisi--;
+    } else {
+      throw "hata";
+    }
+  }
+
+  double get totalPrice {
+    double toplam = 0;
+    for (var urun in sepetListesi) {
+      toplam += urun.fiyat;
+    }
+    return toplam;
+  }
 }
