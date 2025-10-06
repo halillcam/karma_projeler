@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 import 'package:karma_projeler/Sepet/controller/sepet_controller.dart';
 import 'package:karma_projeler/Sepet/model/sepet_model.dart';

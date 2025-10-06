@@ -15,18 +15,39 @@ class Sepetim extends StatelessWidget {
         if (controller.sepetListesi.isEmpty) {
           return const Center(child: Text("Sepetiniz boş"));
         }
-        return ListView.builder(
-          itemCount: controller.sepetListesi.length,
-          itemBuilder: (context, index) {
-            final urun = controller.sepetListesi[index];
-            return Card(
-              child: ListTile(
-                leading: Image.asset(urun.urunResmi),
-                title: Text(urun.urunadi),
-                trailing: Text("${urun.fiyat} ₺"),
+        return Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: controller.sepetListesi.length,
+                itemBuilder: (context, index) {
+                  final urun = controller.sepetListesi[index];
+                  return Card(
+                    child: ListTile(
+                      leading: Image.asset(urun.urunResmi),
+                      title: Text(urun.urunadi),
+                      trailing: IconButton(
+                        onPressed: () {
+                          controller.removeToCart(urun);
+                        },
+                        icon: Icon(Icons.remove_circle_outline),
+                      ),
+                    ),
+                  );
+                },
               ),
-            );
-          },
+            ),
+            Divider(),
+            Padding(
+              padding: EdgeInsetsGeometry.all(8),
+              child: Obx(() {
+                return Text(
+                  "Toplam = ${controller.totalPrice} ₺ ",
+                  style: TextStyle(fontSize: 20),
+                );
+              }),
+            ),
+          ],
         );
       }),
     );
